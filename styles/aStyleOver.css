@@ -1,8 +1,17 @@
+h1{
+    background: #88498F;
+    color: #BBDBD1;
+}
+
+body{
+    background: #779fa1;
+}
 .monthlyTotal {
-align-content: right;
+    background: #E0DCDF;
+    align-content: right;
 }
 
 .redOutBackground{
-    background: red;
-    color: yellow;
+    background: #FF2E00;
+    color: #A297A1;
 }
