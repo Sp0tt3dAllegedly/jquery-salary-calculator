@@ -9,6 +9,7 @@ body{
 
 #tableFormat{
     border: solid;
+    align-content: center
 }
 
 #tbodyFormat{
@@ -16,7 +17,7 @@ body{
 }
 .monthlyTotal {
     background: #E0DCDF;
-    justify-content: right;
+    text-align: right;
 }
 
 .redOutBackground{

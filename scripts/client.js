@@ -2,12 +2,12 @@ console.log('jq');
 
 $(document).ready(onReady);
 
-function onReady(){
+function onReady() {
     console.log('js');
-    
+
     $('#submitButton').on('click', addYourEmployee);
     $('.employeeFormOut').on('click', '.deleteItemListing', removeInput);
-    
+
     // end on ready
 
 }
@@ -16,7 +16,7 @@ let salaryTable = []
 // declare new empty array varaible
 
 function addYourEmployee(employeeInfo) {
-console.log('woo');
+    console.log('woo');
 
     let yourEmployee = {
         firstName: $('#firstNameIn').val(),
@@ -27,20 +27,20 @@ console.log('woo');
         // add another property here, htmlTag>>>&&&!1
     }
     // new item created here
-    
+
     salaryTable.push(yourEmployee);
     // push newly created item into array
 
     salaryInfoOut();
-    
+
     $('.deleteItem').val('');
     console.log('hi');
-    
+
 }
 
 function salaryInfoOut(salaryInfo) {
     // declare salary info input logic    
-   
+
     let totalAnnualWages = 0;
     let monthlyWages = 0;
 
@@ -56,11 +56,11 @@ function salaryInfoOut(salaryInfo) {
 
             `<tr>
 
-            <th> ${salaryTable[i].firstName} </th>
-            <th> ${salaryTable[i].lastName} </th>
-            <th> ${salaryTable[i].iDtag} </th>
-            <th> ${salaryTable[i].title} </th>
-            <th> ${salaryTable[i].annualWages} </th>
+            <td> ${salaryTable[i].firstName} </td>
+            <td> ${salaryTable[i].lastName} </td>
+            <td> ${salaryTable[i].iDtag} </td>
+            <td> ${salaryTable[i].title} </td>
+            <td> ${salaryTable[i].annualWages} </td>
             
         <th><button class="deleteItemListing"> Delete </button></th>
 
@@ -72,14 +72,14 @@ function salaryInfoOut(salaryInfo) {
     // end of for loop cycle
 
     monthlyWages = Math.ceil(totalAnnualWages / 12);
-// this calculator rounds up because hard working employees deserve it
+    // this calculator rounds up because hard working employees deserve it
 
-$('.monthlyTotal').html(monthlyWages);
+    $('.monthlyTotal').html(monthlyWages);
 
-if (monthlyWages > 20000){
-    $('.monthlyTotal').parent().addclass('redOutBackground');
-// end monthlyWages if statement
-}
+    if (monthlyWages > 20000) {
+        $('.monthlyTotal').parent().addclass('redOutBackground');
+        // end monthlyWages if statement
+    }
 }
 
 function removeInput(click) {
