@@ -6,9 +6,17 @@ h1{
 body{
     background: #779fa1;
 }
+
+#tableFormat{
+    border: solid;
+}
+
+#tbodyFormat{
+    border: solid;
+}
 .monthlyTotal {
     background: #E0DCDF;
-    align-content: right;
+    justify-content: right;
 }
 
 .redOutBackground{

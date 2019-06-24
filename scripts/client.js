@@ -6,7 +6,7 @@ function onReady(){
     console.log('js');
     
     $('#submitButton').on('click', addYourEmployee);
-    $('#employeeFormOut').on('click', '.deleteItemListing', removeInput);
+    $('.employeeFormOut').on('click', '.deleteItemListing', removeInput);
     
     // end on ready
 
@@ -46,7 +46,7 @@ function salaryInfoOut(salaryInfo) {
 
     // static variables here
 
-    let el = $('#employeeFormOut');
+    let el = $('.employeeFormOut');
 
     el.empty();
 
@@ -56,11 +56,12 @@ function salaryInfoOut(salaryInfo) {
 
             `<tr>
 
-            <th> ${salaryTable[i].iDtag} </th>
             <th> ${salaryTable[i].firstName} </th>
             <th> ${salaryTable[i].lastName} </th>
+            <th> ${salaryTable[i].iDtag} </th>
             <th> ${salaryTable[i].title} </th>
             <th> ${salaryTable[i].annualWages} </th>
+            
         <th><button class="deleteItemListing"> Delete </button></th>
 
         </tr>`
