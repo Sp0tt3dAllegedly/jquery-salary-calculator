@@ -5,8 +5,8 @@ $(document).ready(onReady);
 function onReady(){
     console.log('js');
     
-    $('#employeeFormOut').on('click', addYourEmployee);
-    $('#submitButton').on('click', '.delete', removeInput);
+    $('#submitButton').on('click', addYourEmployee);
+    $('#employeeFormOut').on('click', '.deleteItemListing', removeInput);
     
     // end on ready
 
@@ -16,13 +16,14 @@ let salaryTable = []
 // declare new empty array varaible
 
 function addYourEmployee(employeeInfo) {
+console.log('woo');
 
     let yourEmployee = {
-        firstName: $('firstNameIn').val(),
-        lastName: $('lastNameIn').val(),
-        iDtag: $('idTagIn').val(),
-        title: $('titleIn'),
-        annualWage: $('AnnualWageIn').val()
+        firstName: $('#firstNameIn').val(),
+        lastName: $('#lastNameIn').val(),
+        iDtag: $('#idTagIn').val(),
+        title: $('#titleIn').val(),
+        annualWages: $('#annualWageIn').val(),
         // add another property here, htmlTag>>>&&&!1
     }
     // new item created here
@@ -33,17 +34,19 @@ function addYourEmployee(employeeInfo) {
     salaryInfoOut();
     
     $('.deleteItem').val('');
+    console.log('hi');
+    
 }
 
 function salaryInfoOut(salaryInfo) {
     // declare salary info input logic    
    
-    let annualWages = 0;
+    let totalAnnualWages = 0;
     let monthlyWages = 0;
 
     // static variables here
 
-    let el = $('employeeFormOut');
+    let el = $('#employeeFormOut');
 
     el.empty();
 
@@ -53,22 +56,24 @@ function salaryInfoOut(salaryInfo) {
 
             `<tr>
 
-            <th> ${salaryTable[i.iDtag]} </th>
-            <th> ${salaryTable[i.firstName]} </th>
-            <th> ${salaryTable[i.lastName]} </th>
-            <th> ${salaryTable[i.title]} </th>
-            <th> ${salaryTable[i.annualWages]} </th>
-        <th><button class="delete"> delete </button></th>
+            <th> ${salaryTable[i].iDtag} </th>
+            <th> ${salaryTable[i].firstName} </th>
+            <th> ${salaryTable[i].lastName} </th>
+            <th> ${salaryTable[i].title} </th>
+            <th> ${salaryTable[i].annualWages} </th>
+        <th><button class="deleteItemListing"> Delete </button></th>
 
         </tr>`
         )
 
-        annualWages += Number(salaryTable[i].annualWages);
+        totalAnnualWages += Number(salaryTable[i].annualWages);
     }
-    monthlyWages = Math.ceil(annualWages / 12);
+    // end of for loop cycle
+
+    monthlyWages = Math.ceil(totalAnnualWages / 12);
 // this calculator rounds up because hard working employees deserve it
 
-$('#monthlyTotal').html(monthlyWages);
+$('.monthlyTotal').html(monthlyWages);
 }
 
 function removeInput(click) {
