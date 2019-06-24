@@ -74,6 +74,11 @@ function salaryInfoOut(salaryInfo) {
 // this calculator rounds up because hard working employees deserve it
 
 $('.monthlyTotal').html(monthlyWages);
+
+if (monthlyWages > 20000){
+    $('.monthlyTotal').parent().addclass('redOutBackground');
+// end monthlyWages if statement
+}
 }
 
 function removeInput(click) {

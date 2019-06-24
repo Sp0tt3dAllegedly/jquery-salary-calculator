@@ -1,3 +1,7 @@
 .monthlyTotal {
 align-content: right;
 }
+
+.redOutBackground{
+    background: red;
+}
